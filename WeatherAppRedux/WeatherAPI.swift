@@ -12,12 +12,14 @@ import SwiftyJSON
 
 class WeatherAPI: NSObject {
     
+    let baseURL = "https://api.darksky.net/forecast/4f9f733e45e297b9118dc052b51e101f/"
+    
     var city = String()
     var country = String()
     var longitude = Double()
     var latitude = Double()
     
-    var DailySummary = String()
+    var dailySummary = String()
     var currently = [String : JSON]()
     var hourly = [String : JSON]()
     
@@ -31,13 +33,16 @@ class WeatherAPI: NSObject {
             self.currently = (weather["currently"]?.dictionaryValue)!
             self.hourly = (weather["hourly"]?.dictionaryValue)!
             
-            //print("\n\n\n\nTHIS IS CURRENTLY \(self.currently)")
+            print("\n\n\n\nTHIS IS CURRENTLY \(self.currently)")
             //print("\n\n\n\nTHIS IS HOURLY \(self.hourly)")
-
 
         }
         
-        
+    }
+    
+    func getWeatherByCoordinates(latitude: Double, longitude: Double) {
+        let weatherRequestURL = URL(string: "\(baseURL)\(latitude)\(longitude)")!
+        APICall(urlRequest: weatherRequestURL)
     }
 
 }

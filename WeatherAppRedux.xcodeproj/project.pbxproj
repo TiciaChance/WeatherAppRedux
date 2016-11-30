@@ -13,7 +13,6 @@
 		1111BF0F1DEF52ED00EBE6D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1111BF0E1DEF52ED00EBE6D1 /* Assets.xcassets */; };
 		1111BF121DEF52ED00EBE6D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1111BF101DEF52ED00EBE6D1 /* LaunchScreen.storyboard */; };
 		1111BF1A1DEF56AF00EBE6D1 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1111BF191DEF56AF00EBE6D1 /* WeatherAPI.swift */; };
-		1111BF1C1DEF6A4300EBE6D1 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1111BF1B1DEF6A4300EBE6D1 /* LocationManager.swift */; };
 		E42C775EBB3CB59E868858DB /* Pods_WeatherAppRedux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA74E139B78AF19D2D5CC40 /* Pods_WeatherAppRedux.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +25,6 @@
 		1111BF111DEF52ED00EBE6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1111BF131DEF52ED00EBE6D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1111BF191DEF56AF00EBE6D1 /* WeatherAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
-		1111BF1B1DEF6A4300EBE6D1 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		4FA74E139B78AF19D2D5CC40 /* Pods_WeatherAppRedux.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherAppRedux.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A2726203E6CABB03BF45F3A /* Pods-WeatherAppRedux.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAppRedux.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherAppRedux/Pods-WeatherAppRedux.release.xcconfig"; sourceTree = "<group>"; };
 		A3DA6E726C5BA019434C45BB /* Pods-WeatherAppRedux.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAppRedux.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherAppRedux/Pods-WeatherAppRedux.debug.xcconfig"; sourceTree = "<group>"; };
@@ -68,7 +66,6 @@
 				1111BF071DEF52ED00EBE6D1 /* AppDelegate.swift */,
 				1111BF091DEF52ED00EBE6D1 /* ViewController.swift */,
 				1111BF191DEF56AF00EBE6D1 /* WeatherAPI.swift */,
-				1111BF1B1DEF6A4300EBE6D1 /* LocationManager.swift */,
 				1111BF0B1DEF52ED00EBE6D1 /* Main.storyboard */,
 				1111BF0E1DEF52ED00EBE6D1 /* Assets.xcassets */,
 				1111BF101DEF52ED00EBE6D1 /* LaunchScreen.storyboard */,
@@ -218,7 +215,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1111BF1C1DEF6A4300EBE6D1 /* LocationManager.swift in Sources */,
 				1111BF1A1DEF56AF00EBE6D1 /* WeatherAPI.swift in Sources */,
 				1111BF0A1DEF52ED00EBE6D1 /* ViewController.swift in Sources */,
 				1111BF081DEF52ED00EBE6D1 /* AppDelegate.swift in Sources */,

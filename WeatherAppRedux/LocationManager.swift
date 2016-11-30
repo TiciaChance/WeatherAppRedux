@@ -34,7 +34,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         locationLong = userLocation.coordinate.longitude
         locationLat = userLocation.coordinate.latitude
         
-        print(locationLat)
+        //print(locationLat)
     }
     
     
