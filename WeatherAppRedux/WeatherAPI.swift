@@ -30,10 +30,9 @@ class WeatherAPI: NSObject {
             
             self.currently = (weather["currently"]?.dictionaryValue)!
             self.hourly = (weather["hourly"]?.dictionaryValue)!
-
             
-            print("\n\n\n\nTHIS IS CURRENTLY \(self.currently)")
-            print("\n\n\n\nTHIS IS HOURLY \(self.hourly)")
+            //print("\n\n\n\nTHIS IS CURRENTLY \(self.currently)")
+            //print("\n\n\n\nTHIS IS HOURLY \(self.hourly)")
 
 
         }
