@@ -12,19 +12,21 @@ import CoreLocation
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
     let weather = WeatherAPI()
+
     let locationManager = CLLocationManager()
     var locationLong = Double()
     var locationLat = Double()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         instantiateLocationManager()
-        //weather.APICall(urlRequest: URL(string: "https://api.darksky.net/forecast/4f9f733e45e297b9118dc052b51e101f/40.3601,-74.0589")!)
+        weather.APICall(urlRequest: URL(string: "https://api.darksky.net/forecast/4f9f733e45e297b9118dc052b51e101f/51.5074,0.1278")!)
         
     }
-
-
+    
+   
     func instantiateLocationManager() {
         
         locationManager.requestAlwaysAuthorization()
@@ -47,15 +49,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         weather.getWeatherByCoordinates(latitude: locationLat, longitude: locationLong)
         
         print(locationLat)
+        print(locationLong)
         
     }
-
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 

@@ -19,27 +19,40 @@ class WeatherAPI: NSObject {
     var longitude = Double()
     var latitude = Double()
     
-    var dailySummary = String()
+    var daily = [String : JSON]()
     var currently = [String : JSON]()
     var hourly = [String : JSON]()
+    
+    var dailySummary = String()
+    
+    var currentChanceOfRain = Double()
+    var currentSummary = String()
+    var currentTemperature = Double()
+    var curentHumidity = Double()
+    var currentWindSpeed = Double()
+    
+    var hourlyTemperature = Double()
+    let hourlyChanceOfRain = Double()
+    
+    var sunset = Int() //change to NSDATE
+    var sunrise = Int()
     
     
     func APICall(urlRequest: URL) {
         
-        Alamofire.request("https://api.darksky.net/forecast/4f9f733e45e297b9118dc052b51e101f/40.3601,-74.0589").responseJSON { (response) in
+        Alamofire.request(urlRequest).responseJSON { (response) in
             
-            guard let weather = JSON(data: response.data!).dictionary else {return}
+            //guard let weather = JSON(data: response.data!).dictionary else {return}
             
-            self.currently = (weather["currently"]?.dictionaryValue)!
-            self.hourly = (weather["hourly"]?.dictionaryValue)!
-            
-            print("\n\n\n\nTHIS IS CURRENTLY \(self.currently)")
-            //print("\n\n\n\nTHIS IS HOURLY \(self.hourly)")
-
         }
         
     }
     
+//    func getWeatherByCity(city: String) {
+//        let weatherRequestURL = URL(string: "\(baseURL)\(latitude)\(longitude)")
+//        APICall(urlRequest: weatherRequestURL!)
+//    }
+ 
     func getWeatherByCoordinates(latitude: Double, longitude: Double) {
         let weatherRequestURL = URL(string: "\(baseURL)\(latitude)\(longitude)")!
         APICall(urlRequest: weatherRequestURL)
