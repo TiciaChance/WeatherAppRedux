@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
     
     var weather = WeatherAPI()
     let baseURL = "https://api.darksky.net/forecast/4f9f733e45e297b9118dc052b51e101f/"
@@ -30,6 +30,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         tableView.backgroundColor = UIColor.clear
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
         instantiateLocationManager()
 
         weather.APICall(completed: {
@@ -38,9 +42,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-
-
-   
     
     func updateUI() {
         
@@ -48,6 +49,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         tempLabel.text = "\(weather.currentTemperature)°"
 
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+       
+        cell.backgroundColor = UIColor.clear
+        cell.textLabel?.textColor = UIColor.white
+        cell.textLabel?.text = "\(weather.hourlyTemperature)"
+        
+        return cell
+    }
+    
     
 //    func getWeatherByCoordinates(latitude: Double, longitude: Double) {
 //        let weatherRequestURL = URL(string: "\(weather.baseURL)\(latitude)\(longitude)")!

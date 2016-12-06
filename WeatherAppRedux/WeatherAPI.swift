@@ -21,9 +21,11 @@ class WeatherAPI: NSObject {
     var longitude = Double()
     var latitude = Double()
     
+    var hourlyData = [[String : AnyObject]]()
+    
     var daily = [String : JSON]()
     var currently = [String : JSON]()
-    var hourly = [String : JSON]()
+    var hourly = [String : AnyObject]()
     
     var dailySummary = String()
     
@@ -47,6 +49,8 @@ class WeatherAPI: NSObject {
             
             guard let weather = JSON(data: response.data!).dictionary else {return}
             
+            let weather2 = response.result.value as! [String : AnyObject]
+            
             let timezone = weather["timezone"]?.stringValue
             let countryCity = timezone?.components(separatedBy: "/")
             self.country = (countryCity?[0])!
@@ -55,7 +59,16 @@ class WeatherAPI: NSObject {
             
             self.daily = (weather["daily"]?.dictionaryValue)!
             self.currently = (weather["currently"]?.dictionaryValue)!
-            self.hourly = (weather["hourly"]?.dictionaryValue)!
+            self.hourly = weather2["hourly"] as! [String : AnyObject]
+            
+            self.hourlyData = self.hourly["data"] as! [[String : AnyObject]]
+            
+            
+            for dict in self.hourlyData {
+                
+                self.hourlyTemperature = dict["temperature"] as! Double
+                
+            }
             
             self.dailySummary = (self.daily["data"]?["summary"].stringValue)!
             
@@ -67,7 +80,7 @@ class WeatherAPI: NSObject {
             self.curentHumidity = (self.currently["humidity"]?.doubleValue)!
             self.currentWindSpeed = (self.currently["windSpeed"]?.doubleValue)!
             
-            self.hourlyTemperature = (self.hourly["data"]![0]["temperature"].doubleValue)
+            //self.hourlyTemperature = (self.hourly["data"]![0]["temperature"].doubleValue)
             
             self.sunset = (self.daily["data"]?[0]["sunsetTime"].intValue)!
             self.sunrise = (self.daily["data"]?[0]["sunriseTime"].intValue)!
