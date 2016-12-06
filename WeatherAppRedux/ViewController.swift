@@ -9,12 +9,11 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var weather = WeatherAPI()
     let baseURL = "https://api.darksky.net/forecast/4f9f733e45e297b9118dc052b51e101f/"
-
-    @IBOutlet weak var tableView: UITableView!
+    
     
     let locationManager = CLLocationManager()
     var locationLong = Double()
@@ -29,15 +28,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.backgroundColor = UIColor.clear
-        
-        tableView.dataSource = self
-        tableView.delegate = self
         
         instantiateLocationManager()
-
+        
         weather.APICall(completed: {
-          self.updateUI()
+            self.updateUI()
         })
         
     }
@@ -47,37 +42,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         
         cityLbl.text = weather.city
         tempLabel.text = "\(weather.currentTemperature)°"
+        
+    }
+    
+    
+}
 
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-        
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-       
-        cell.backgroundColor = UIColor.clear
-        cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.text = "\(weather.hourlyTemperature)"
-        
-        return cell
-    }
-    
-    
+
 //    func getWeatherByCoordinates(latitude: Double, longitude: Double) {
 //        let weatherRequestURL = URL(string: "\(weather.baseURL)\(latitude)\(longitude)")!
 //        weather.APICall(urlRequest: weatherRequestURL, completed: {
 //            print(self.locationLong)
 //        })
 //    }
-    
+
 }
 
 extension ViewController {
@@ -100,10 +78,10 @@ extension ViewController {
         let userLocation: CLLocation = locations[0]
         locationLong = userLocation.coordinate.longitude
         locationLat = userLocation.coordinate.latitude
-
+        
         //print(locationLat)
         //print(locationLong)
-                
+        
     }
 }
 
