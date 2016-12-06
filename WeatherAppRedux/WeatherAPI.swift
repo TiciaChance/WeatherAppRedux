@@ -34,8 +34,9 @@ class WeatherAPI: NSObject {
     var currentTemperature = Int()
     var curentHumidity = Double()
     var currentWindSpeed = Double()
+    var currentTime = Int()
     
-    var hourlyTemperature = Double()
+    var hourlyTemperature = [Double]()
     let hourlyChanceOfRain = Double()
     
     var sunset = Int() //change to NSDATE
@@ -66,15 +67,15 @@ class WeatherAPI: NSObject {
             
             for dict in self.hourlyData {
                 
-                self.hourlyTemperature = dict["temperature"] as! Double
-                
+                self.hourlyTemperature.append(dict["temperature"] as! Double)
+                //print(" \n\n\n\nHEY ::: \(self.hourlyTemperature)")
             }
             
             self.dailySummary = (self.daily["data"]?["summary"].stringValue)!
             
             self.currentChanceOfRain = (self.currently["precipProbability"]?.doubleValue)!
             self.currentSummary = (self.currently["summary"]?.stringValue)!
-            
+            self.currentTime = (self.currently["time"]?.intValue)!
             self.currentTemperature = Int(round((self.currently["temperature"]?.doubleValue)!))
             
             self.curentHumidity = (self.currently["humidity"]?.doubleValue)!
