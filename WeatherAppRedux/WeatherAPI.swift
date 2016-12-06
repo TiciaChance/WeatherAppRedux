@@ -15,9 +15,6 @@ class WeatherAPI: NSObject {
     
     let baseURL = "https://api.darksky.net/forecast/4f9f733e45e297b9118dc052b51e101f/"
     
-    // store info into an array or dictionary
-    // access that collection in vc
-    //
     
     var city = String()
     var country = String()
@@ -32,7 +29,7 @@ class WeatherAPI: NSObject {
     
     var currentChanceOfRain = Double()
     var currentSummary = String()
-    var currentTemperature = Double()
+    var currentTemperature = Int()
     var curentHumidity = Double()
     var currentWindSpeed = Double()
     
@@ -43,6 +40,7 @@ class WeatherAPI: NSObject {
     var sunrise = Int()
     
     func APICall(completed: @escaping () -> ()) {
+        
         
         Alamofire.request("https://api.darksky.net/forecast/4f9f733e45e297b9118dc052b51e101f/40,-74").responseJSON(completionHandler: {
             response in
@@ -63,7 +61,9 @@ class WeatherAPI: NSObject {
             
             self.currentChanceOfRain = (self.currently["precipProbability"]?.doubleValue)!
             self.currentSummary = (self.currently["summary"]?.stringValue)!
-            self.currentTemperature = (self.currently["temperature"]?.doubleValue)!
+            
+            self.currentTemperature = Int(round((self.currently["temperature"]?.doubleValue)!))
+            
             self.curentHumidity = (self.currently["humidity"]?.doubleValue)!
             self.currentWindSpeed = (self.currently["windSpeed"]?.doubleValue)!
             
@@ -73,12 +73,13 @@ class WeatherAPI: NSObject {
             self.sunrise = (self.daily["data"]?[0]["sunriseTime"].intValue)!
             
             
-            print("\n\n\n\nTHIS IS CURRENTLY \(self.city)")
+            //print("\n\n\n\nTHIS IS CURRENTLY \(self.city)")
             //print("\n\n\n\nTHIS IS HOURLY \(self.hourly)")
             
             completed()
         })
     }
+    
 }
 
 

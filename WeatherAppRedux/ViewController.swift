@@ -12,6 +12,9 @@ import CoreLocation
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var weather = WeatherAPI()
+    let baseURL = "https://api.darksky.net/forecast/4f9f733e45e297b9118dc052b51e101f/"
+
+    @IBOutlet weak var tableView: UITableView!
     
     let locationManager = CLLocationManager()
     var locationLong = Double()
@@ -26,20 +29,32 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.backgroundColor = UIColor.clear
         instantiateLocationManager()
-        weather.APICall {
-            self.updateUI()
-            print("CITY \(self.weather.city)")
-        }
-    }
 
+        weather.APICall(completed: {
+          self.updateUI()
+        })
+        
+    }
+    
+
+
+   
     
     func updateUI() {
         
         cityLbl.text = weather.city
-        tempLabel.text = String(weather.currentTemperature)
+        tempLabel.text = "\(weather.currentTemperature)°"
 
     }
+    
+//    func getWeatherByCoordinates(latitude: Double, longitude: Double) {
+//        let weatherRequestURL = URL(string: "\(weather.baseURL)\(latitude)\(longitude)")!
+//        weather.APICall(urlRequest: weatherRequestURL, completed: {
+//            print(self.locationLong)
+//        })
+//    }
     
 }
 
@@ -64,11 +79,9 @@ extension ViewController {
         locationLong = userLocation.coordinate.longitude
         locationLat = userLocation.coordinate.latitude
 
-        print(locationLat)
-        print(locationLong)
-        
-        
-        
+        //print(locationLat)
+        //print(locationLong)
+                
     }
 }
 
