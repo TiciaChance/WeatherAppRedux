@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,31 +22,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Country/City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpM-Jk-R4q">
-                                <rect key="frame" x="16" y="20" width="114" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="field.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="hiT-zN-8SK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country/City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpM-Jk-R4q">
+                                <rect key="frame" x="16" y="30" width="120" height="23"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weekday/Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0F-wM-eqe">
-                                <rect key="frame" x="16" y="49" width="114" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekday/Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0F-wM-eqe">
+                                <rect key="frame" x="16" y="58" width="126" height="22"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="19"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="19°, feels like 10°. It's cloudy outside and there is 2% of rain" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ona-mD-Qal">
-                                <rect key="frame" x="16" y="236" width="282" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGz-vB-PdY">
+                                <rect key="frame" x="119" y="282" width="136.5" height="103.5"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="90"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feels like 10°. It's cloudy outside and there is 2% of rain." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ona-mD-Qal">
+                                <rect key="frame" x="46" y="367" width="282" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="282" id="JLS-xM-Cbe"/>
+                                    <constraint firstAttribute="height" constant="100" id="Xdt-97-nbA"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe for more details " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgP-to-nyq">
+                                <rect key="frame" x="78" y="564" width="219" height="23"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.99990516901016235" green="1" blue="0.99987047910690308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="W0F-wM-eqe" firstAttribute="top" secondItem="cpM-Jk-R4q" secondAttribute="bottom" constant="5" id="149-qt-r1a"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ona-mD-Qal" secondAttribute="trailing" constant="31" id="3TP-h9-Vpn"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ona-mD-Qal" secondAttribute="bottom" constant="200" id="7QY-O2-1QI"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AgP-to-nyq" secondAttribute="bottom" constant="80" id="AeF-SI-tbL"/>
+                            <constraint firstItem="hiT-zN-8SK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="C2j-M1-dJQ"/>
+                            <constraint firstItem="W0F-wM-eqe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Chu-fa-aUu"/>
+                            <constraint firstItem="ona-mD-Qal" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hzi-nu-nRo"/>
+                            <constraint firstAttribute="trailing" secondItem="hiT-zN-8SK" secondAttribute="trailing" id="LWW-F3-bXT"/>
+                            <constraint firstItem="AgP-to-nyq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MwU-sR-bCv"/>
+                            <constraint firstItem="cpM-Jk-R4q" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="Pvp-nh-L10"/>
+                            <constraint firstItem="GGz-vB-PdY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QNq-DF-GXH"/>
+                            <constraint firstItem="GGz-vB-PdY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YrX-Gg-yaM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hiT-zN-8SK" secondAttribute="bottom" id="aqY-aL-Gga"/>
+                            <constraint firstItem="cpM-Jk-R4q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="deG-Cv-MPc"/>
+                            <constraint firstItem="hiT-zN-8SK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gmZ-ka-eZl"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="cityLbl" destination="cpM-Jk-R4q" id="y1t-Yr-Pqi"/>
+                        <outlet property="dayOfWeekLabel" destination="W0F-wM-eqe" id="L7g-7N-eqT"/>
+                        <outlet property="summaryLabel" destination="ona-mD-Qal" id="QSG-HN-OvE"/>
+                        <outlet property="tempLabel" destination="GGz-vB-PdY" id="D1E-ec-E0Q"/>
                         <segue destination="mer-5Q-dcd" kind="show" identifier="mySegue" id="yTX-xU-Ofh"/>
                     </connections>
                 </viewController>
@@ -72,4 +110,7 @@
             <point key="canvasLocation" x="684" y="37.331334332833585"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="field.jpg" width="3339" height="5009"/>
+    </resources>
 </document>

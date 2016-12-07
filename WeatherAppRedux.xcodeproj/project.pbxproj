@@ -18,6 +18,7 @@
 		118CAEE81DF724D700F12F66 /* tree.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 118CAEE71DF724D700F12F66 /* tree.jpg */; };
 		118CAEEA1DF7257100F12F66 /* leaf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 118CAEE91DF7257100F12F66 /* leaf.jpg */; };
 		118CAEEC1DF725C700F12F66 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118CAEEB1DF725C700F12F66 /* DetailVC.swift */; };
+		11FD4C721DF88813004B331E /* field.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11FD4C711DF88813004B331E /* field.jpg */; };
 		E42C775EBB3CB59E868858DB /* Pods_WeatherAppRedux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA74E139B78AF19D2D5CC40 /* Pods_WeatherAppRedux.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		118CAEE71DF724D700F12F66 /* tree.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tree.jpg; path = ../../../../Downloads/tree.jpg; sourceTree = "<group>"; };
 		118CAEE91DF7257100F12F66 /* leaf.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = leaf.jpg; path = ../../../../Downloads/leaf.jpg; sourceTree = "<group>"; };
 		118CAEEB1DF725C700F12F66 /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		11FD4C711DF88813004B331E /* field.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = field.jpg; path = ../../../../Downloads/field.jpg; sourceTree = "<group>"; };
 		4FA74E139B78AF19D2D5CC40 /* Pods_WeatherAppRedux.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherAppRedux.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A2726203E6CABB03BF45F3A /* Pods-WeatherAppRedux.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAppRedux.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherAppRedux/Pods-WeatherAppRedux.release.xcconfig"; sourceTree = "<group>"; };
 		A3DA6E726C5BA019434C45BB /* Pods-WeatherAppRedux.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAppRedux.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherAppRedux/Pods-WeatherAppRedux.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				118CAEE51DF6682300F12F66 /* stones.jpg */,
 				118CAEE71DF724D700F12F66 /* tree.jpg */,
 				118CAEE91DF7257100F12F66 /* leaf.jpg */,
+				11FD4C711DF88813004B331E /* field.jpg */,
 				118CAEE31DF6681700F12F66 /* green2.jpg */,
 				1111BF131DEF52ED00EBE6D1 /* Info.plist */,
 			);
@@ -197,6 +200,7 @@
 				118CAEE81DF724D700F12F66 /* tree.jpg in Resources */,
 				1111BF121DEF52ED00EBE6D1 /* LaunchScreen.storyboard in Resources */,
 				118CAEEA1DF7257100F12F66 /* leaf.jpg in Resources */,
+				11FD4C721DF88813004B331E /* field.jpg in Resources */,
 				1111BF0F1DEF52ED00EBE6D1 /* Assets.xcassets in Resources */,
 				1111BF0D1DEF52ED00EBE6D1 /* Main.storyboard in Resources */,
 				118CAEE61DF6682300F12F66 /* stones.jpg in Resources */,

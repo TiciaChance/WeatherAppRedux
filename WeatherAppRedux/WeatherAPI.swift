@@ -43,10 +43,10 @@ class WeatherAPI: NSObject {
     var sunset = Int() //change to NSDATE
     var sunrise = Int()
     
-    func APICall(completed: @escaping () -> ()) {
+    func APICall(urlRequest: URL, completed: @escaping () -> ()) {
         
         
-        Alamofire.request("https://api.darksky.net/forecast/4f9f733e45e297b9118dc052b51e101f/40,-74").responseJSON(completionHandler: {
+        Alamofire.request(urlRequest).responseJSON(completionHandler: {
             response in
             
             guard let weather = JSON(data: response.data!).dictionary else {return}
@@ -78,7 +78,7 @@ class WeatherAPI: NSObject {
             self.currentSummary = (self.currently["summary"]?.stringValue)!
             self.currentTime = (self.currently["time"]?.intValue)!
             self.currentTemperature = Int(round((self.currently["temperature"]?.doubleValue)!))
-            self.apparentTemp = Int(round((self.currently["apparentTemperature"]?.doubleValue)!))
+            self.apparentTemp = Int(round((self.currently["temperature"]?.doubleValue)!))
 
             
             self.curentHumidity = (self.currently["humidity"]?.doubleValue)!
