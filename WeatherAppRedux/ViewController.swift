@@ -24,13 +24,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var locationLong = Double()
     var locationLat = Double()
     
-    var time = String()
-    var test = String()
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideLabels()
         instantiateLocationManager()
 
         let recognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.swipeLeft(recognizer:)))
@@ -39,7 +36,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    func hideLabels() {
+        cityLbl.isHidden = true
+        summaryLabel.isHidden = true
+        dayOfWeekLabel.isHidden = true
+        tempLabel.isHidden = true
+    }
     
+    func showLabels() {
+        cityLbl.isHidden = false
+        summaryLabel.isHidden = false
+        dayOfWeekLabel.isHidden = false
+        tempLabel.isHidden = false
+
+    }
     
     func swipeLeft(recognizer : UISwipeGestureRecognizer) {
         self.performSegue(withIdentifier: "mySegue", sender: self)
@@ -50,10 +60,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         cityLbl.text = weather.city
         tempLabel.text = "\(weather.currentTemperature)°"
-        summaryLabel.text = "Feels like \(weather.apparentTemp)°. It's \(weather.currentSummary) outside and there is \(Int(weather.currentChanceOfRain))% chance of rain."
+        summaryLabel.text = "Feels like \(weather.apparentTemp)°. It's \(weather.currentSummary.lowercased()) outside and there is \(Int(weather.currentChanceOfRain))% chance of rain."
         
         dayOfWeek()
-        
     }
     
     func dayOfWeek() {
@@ -67,6 +76,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let hour = calendar.component(.hour, from: date1)
         let min = calendar.component(.month, from: date1)
         
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        formatter.amSymbol = "AM"
+        formatter.pmSymbol = "PM"
         
         let dateComponents = NSDateComponents()
         dateComponents.day =  day
@@ -86,7 +100,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         case 3:
             dayOfWeekLabel.text = "Tuesday \(hour):\(min)"
         case 4:
-            dayOfWeekLabel.text = "Wednesday \(hour):\(min)"
+            dayOfWeekLabel.text = "Wednesday \(formatter.string(from: date1))"
         case 5:
             dayOfWeekLabel.text = "Thursday \(hour):\(min)"
         case 6:
@@ -98,8 +112,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
         
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showImageVC" {
+            let VC = segue.destination as! DetailVC
+        
+        }
+    }
+    
 }
+
 
 
 extension ViewController {
@@ -123,12 +145,9 @@ extension ViewController {
         locationLong = userLocation.coordinate.longitude
         locationLat = userLocation.coordinate.latitude
       
-        print("getting location")
-        print(locationLong)
-       // print(locationLat)
         weather.APICall(urlRequest: URL(string: "\(baseURL)\(locationLat),\(locationLong)")!) {
-            print("getting data and lat = \(self.locationLat)")
-            print(" long = \(self.locationLong)")
+           
+            self.showLabels()
             self.updateUI()
 
         }
