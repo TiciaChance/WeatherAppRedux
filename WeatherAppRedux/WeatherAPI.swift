@@ -35,6 +35,7 @@ class WeatherAPI: NSObject {
     var curentHumidity = Double()
     var currentWindSpeed = Double()
     var currentTime = Int()
+    var apparentTemp = Int()
     
     var hourlyTemperature = [Double]()
     let hourlyChanceOfRain = Double()
@@ -77,6 +78,8 @@ class WeatherAPI: NSObject {
             self.currentSummary = (self.currently["summary"]?.stringValue)!
             self.currentTime = (self.currently["time"]?.intValue)!
             self.currentTemperature = Int(round((self.currently["temperature"]?.doubleValue)!))
+            self.apparentTemp = Int(round((self.currently["apparentTemperature"]?.doubleValue)!))
+
             
             self.curentHumidity = (self.currently["humidity"]?.doubleValue)!
             self.currentWindSpeed = (self.currently["windSpeed"]?.doubleValue)!
