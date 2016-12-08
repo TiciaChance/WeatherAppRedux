@@ -28,6 +28,10 @@ class WeatherAPI: NSObject {
     var hourly = [String : AnyObject]()
     
     var dailySummary = String()
+    var dayOfWeek = [String]()
+   // var dailyTemp = [Double : Double]()
+    var dailyMaxTemp = [Double]()
+    var dailyMinTemp = [Double]()
     
     var currentChanceOfRain = Double()
     var currentSummary = String()
@@ -69,17 +73,49 @@ class WeatherAPI: NSObject {
             self.hourly = weather2["hourly"] as! [String : AnyObject]
             
             self.hourlyData = self.hourly["data"] as! [[String : AnyObject]]
+        
             
+            self.dailySummary = (self.daily["summary"]!.stringValue)
+            let dailyData = self.daily["data"]?.arrayValue
             
-            for dict in self.hourlyData {
+            for timeAndDayData in dailyData! {
                 
-                self.hourlyTemperature.append(dict["temperature"] as! Double)
-                //print(" \n\n\n\nHEY ::: \(self.hourlyTemperature)")
+                let days = timeAndDayData["time"].doubleValue
+                let dayDate = NSDate(timeIntervalSince1970: days)
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "EEEE"
+
+                let stringDate: String = formatter.string(from: dayDate as Date)
+                
+                print(dayDate)
+                print(stringDate)
+                
+                self.dayOfWeek.append(stringDate)
             }
             
-           // print(self.hourlyTemperature)
+            //could put in dictionary
+    
             
-            self.dailySummary = (self.daily["data"]?["summary"].stringValue)!
+            
+            
+            for dailyTemp in dailyData! {
+                let maxTemp = dailyTemp["temperatureMax"].doubleValue
+                self.dailyMaxTemp.append(maxTemp)
+            }
+            
+            for dailyTemp in dailyData! {
+                let minTemp = dailyTemp["temperatureMax"].doubleValue
+                self.dailyMinTemp.append(minTemp)
+            }
+
+
+//            for dailyTemp in dailyData! {
+//                let minTemp = dailyTemp["temperatureMin"].doubleValue
+//                let maxTemp = dailyTemp["temperatureMax"].doubleValue
+//                
+//                self.dailyTemp[minTemp] = maxTemp
+//            }
             
             self.currentChanceOfRain = (self.currently["precipProbability"]?.doubleValue)!
             self.currentSummary = (self.currently["summary"]?.stringValue)!
@@ -103,15 +139,39 @@ class WeatherAPI: NSObject {
             let sunriseTime = (self.daily["data"]?[0]["sunriseTime"].doubleValue)!
             self.sunrise = NSDate(timeIntervalSince1970: sunriseTime)
            
-            //let dayTimePeriodFormatter = DateFormatter()
             self.sunriseDateString = timePeriodFormatter.string(from: self.sunrise as Date)
             
-            print(self.sunriseDateString)
-            print("HEY\(self.sunriseDateString)")
+          
             
             completed()
         })
     }
+//    
+//    func dateConverter() {
+//        guard let gregorianCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian) else {return}
+//        let date = gregorianCalendar.date(from: dateComponents as DateComponents)
+//        let weekday = gregorianCalendar.component(.weekday, from: date!)
+//        
+//        
+//        switch weekday {
+//        case 1:
+//              "Sunday"
+//        case 2:
+//             "Monday"
+//        case 3:
+//             "Tuesday"
+//        case 4:
+//           "Wednesday"
+//        case 5:
+//            "Thursday"
+//        case 6:
+//            "Friday "
+//        case 7:
+//            "Saturday"
+//        default:
+//            break
+//        }
+//    }
 
     
 }

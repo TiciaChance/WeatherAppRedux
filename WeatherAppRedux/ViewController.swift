@@ -73,8 +73,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let year = calendar.component(.year, from: date1)
         let month = calendar.component(.month, from: date1)
         let day = calendar.component(.day, from: date1)
-        let hour = calendar.component(.hour, from: date1)
-        let min = calendar.component(.month, from: date1)
+        //let hour = calendar.component(.hour, from: date1)
+        //let min = calendar.component(.month, from: date1)
         
         
         let formatter = DateFormatter()
@@ -94,19 +94,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         switch weekday {
         case 1:
-            dayOfWeekLabel.text = "Sunday \(hour):\(min)"
+            dayOfWeekLabel.text = "Sunday \(formatter.string(from: date1))"
         case 2:
-            dayOfWeekLabel.text = "Monday \(hour):\(min)"
+            dayOfWeekLabel.text = "Monday \(formatter.string(from: date1))"
         case 3:
-            dayOfWeekLabel.text = "Tuesday \(hour):\(min)"
+            dayOfWeekLabel.text = "Tuesday \(formatter.string(from: date1))"
         case 4:
             dayOfWeekLabel.text = "Wednesday \(formatter.string(from: date1))"
         case 5:
-            dayOfWeekLabel.text = "Thursday \(hour):\(min)"
+            dayOfWeekLabel.text = "Thursday \(formatter.string(from: date1))"
         case 6:
-            dayOfWeekLabel.text = "Friday \(hour):\(min)"
+            dayOfWeekLabel.text = "Friday \(formatter.string(from: date1))"
         case 7:
-            dayOfWeekLabel.text = "Saturday \(hour):\(min)"
+            dayOfWeekLabel.text = "Saturday \(formatter.string(from: date1))"
         default:
             break
         }
@@ -119,6 +119,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         detailVC.sunsetTime = weather.sunsetDateString
         detailVC.sunriseTime = weather.sunriseDateString
+        detailVC.weekday = weather.dayOfWeek
+        detailVC.minTemp = weather.dailyMinTemp
+        detailVC.maxTemp = weather.dailyMaxTemp
     }
 
 }
