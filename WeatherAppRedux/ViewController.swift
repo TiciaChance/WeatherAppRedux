@@ -31,7 +31,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         instantiateLocationManager()
 
         let recognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.swipeLeft(recognizer:)))
-        recognizer.direction = .left
+        recognizer.direction = .up
         self.view .addGestureRecognizer(recognizer)
         
     }
