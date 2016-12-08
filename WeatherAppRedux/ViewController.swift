@@ -122,6 +122,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         detailVC.weekday = weather.dayOfWeek
         detailVC.minTemp = weather.dailyMinTemp
         detailVC.maxTemp = weather.dailyMaxTemp
+        detailVC.dailySummary = weather.dailySummary
+        detailVC.humidity = weather.curentHumidity
+        detailVC.windSpeed = weather.currentWindSpeed
+        detailVC.feelsLike = weather.apparentTemp
+        detailVC.chanceOfRain = weather.currentChanceOfRain
     }
 
 }

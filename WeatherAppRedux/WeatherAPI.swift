@@ -94,40 +94,26 @@ class WeatherAPI: NSObject {
                 self.dayOfWeek.append(stringDate)
             }
             
-            //could put in dictionary
-    
-            
-            
-            
             for dailyTemp in dailyData! {
                 let maxTemp = dailyTemp["temperatureMax"].doubleValue
                 self.dailyMaxTemp.append(maxTemp)
             }
             
             for dailyTemp in dailyData! {
-                let minTemp = dailyTemp["temperatureMax"].doubleValue
+                let minTemp = dailyTemp["temperatureMin"].doubleValue
                 self.dailyMinTemp.append(minTemp)
             }
-
-
-//            for dailyTemp in dailyData! {
-//                let minTemp = dailyTemp["temperatureMin"].doubleValue
-//                let maxTemp = dailyTemp["temperatureMax"].doubleValue
-//                
-//                self.dailyTemp[minTemp] = maxTemp
-//            }
             
+            // CURRENT
             self.currentChanceOfRain = (self.currently["precipProbability"]?.doubleValue)!
             self.currentSummary = (self.currently["summary"]?.stringValue)!
             self.currentTime = (self.currently["time"]?.intValue)!
             self.currentTemperature = Int(round((self.currently["temperature"]?.doubleValue)!))
-            self.apparentTemp = Int(round((self.currently["temperature"]?.doubleValue)!))
-
-            
+            self.apparentTemp = Int(round((self.currently["apparentTemperature"]?.doubleValue)!))
             self.curentHumidity = (self.currently["humidity"]?.doubleValue)!
             self.currentWindSpeed = (self.currently["windSpeed"]?.doubleValue)!
             
-            
+            // Sunrise / Sunset
             let sunsetTime = (self.daily["data"]?[0]["sunsetTime"].doubleValue)!
             self.sunset = NSDate(timeIntervalSince1970: sunsetTime)
             
@@ -141,7 +127,6 @@ class WeatherAPI: NSObject {
            
             self.sunriseDateString = timePeriodFormatter.string(from: self.sunrise as Date)
             
-          
             
             completed()
         })
