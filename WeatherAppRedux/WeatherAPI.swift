@@ -18,10 +18,6 @@ class WeatherAPI: NSObject {
     
     var city = String()
     var country = String()
-    var longitude = Double()
-    var latitude = Double()
-    
-    var hourlyData = [[String : AnyObject]]()
     
     var daily = [String : JSON]()
     var currently = [String : JSON]()
@@ -29,7 +25,6 @@ class WeatherAPI: NSObject {
     
     var dailySummary = String()
     var dayOfWeek = [String]()
-   // var dailyTemp = [Double : Double]()
     var dailyMaxTemp = [Double]()
     var dailyMinTemp = [Double]()
     
@@ -41,12 +36,8 @@ class WeatherAPI: NSObject {
     var currentTime = Int()
     var apparentTemp = Int()
     
-    var hourlyTemperature = [Double]()
-    let hourlyChanceOfRain = Double()
-    
     var sunsetDateString = String()
     var sunriseDateString = String()
-
     
     var sunset = NSDate() //change to NSDATE
     var sunrise = NSDate()
@@ -66,14 +57,10 @@ class WeatherAPI: NSObject {
             let countryCity = timezone?.components(separatedBy: "/")
             self.country = (countryCity?[0])!
             self.city = (countryCity?[1].replacingOccurrences(of: "_", with: " "))!
-
             
             self.daily = (weather["daily"]?.dictionaryValue)!
             self.currently = (weather["currently"]?.dictionaryValue)!
             self.hourly = weather2["hourly"] as! [String : AnyObject]
-            
-            self.hourlyData = self.hourly["data"] as! [[String : AnyObject]]
-        
             
             self.dailySummary = (self.daily["summary"]!.stringValue)
             let dailyData = self.daily["data"]?.arrayValue
@@ -85,7 +72,7 @@ class WeatherAPI: NSObject {
                 
                 let formatter = DateFormatter()
                 formatter.dateFormat = "EEEE"
-
+                
                 let stringDate: String = formatter.string(from: dayDate as Date)
                 
                 print(dayDate)
@@ -121,43 +108,16 @@ class WeatherAPI: NSObject {
             timePeriodFormatter.dateFormat = "hh:mm a"
             
             self.sunsetDateString = timePeriodFormatter.string(from: self.sunset as Date)
-        
+            
             let sunriseTime = (self.daily["data"]?[0]["sunriseTime"].doubleValue)!
             self.sunrise = NSDate(timeIntervalSince1970: sunriseTime)
-           
+            
             self.sunriseDateString = timePeriodFormatter.string(from: self.sunrise as Date)
             
             
             completed()
         })
     }
-//    
-//    func dateConverter() {
-//        guard let gregorianCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian) else {return}
-//        let date = gregorianCalendar.date(from: dateComponents as DateComponents)
-//        let weekday = gregorianCalendar.component(.weekday, from: date!)
-//        
-//        
-//        switch weekday {
-//        case 1:
-//              "Sunday"
-//        case 2:
-//             "Monday"
-//        case 3:
-//             "Tuesday"
-//        case 4:
-//           "Wednesday"
-//        case 5:
-//            "Thursday"
-//        case 6:
-//            "Friday "
-//        case 7:
-//            "Saturday"
-//        default:
-//            break
-//        }
-//    }
-
     
 }
 
