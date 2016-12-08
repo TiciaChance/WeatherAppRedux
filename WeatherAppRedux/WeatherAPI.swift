@@ -40,8 +40,12 @@ class WeatherAPI: NSObject {
     var hourlyTemperature = [Double]()
     let hourlyChanceOfRain = Double()
     
-    var sunset = Int() //change to NSDATE
-    var sunrise = Int()
+    var sunsetDateString = String()
+    var sunriseDateString = String()
+
+    
+    var sunset = NSDate() //change to NSDATE
+    var sunrise = NSDate()
     
     func APICall(urlRequest: URL, completed: @escaping () -> ()) {
         
@@ -50,6 +54,7 @@ class WeatherAPI: NSObject {
             response in
             
             guard let weather = JSON(data: response.data!).dictionary else {return}
+            
             
             let weather2 = response.result.value as! [String : AnyObject]
             
@@ -72,6 +77,8 @@ class WeatherAPI: NSObject {
                 //print(" \n\n\n\nHEY ::: \(self.hourlyTemperature)")
             }
             
+           // print(self.hourlyTemperature)
+            
             self.dailySummary = (self.daily["data"]?["summary"].stringValue)!
             
             self.currentChanceOfRain = (self.currently["precipProbability"]?.doubleValue)!
@@ -84,18 +91,28 @@ class WeatherAPI: NSObject {
             self.curentHumidity = (self.currently["humidity"]?.doubleValue)!
             self.currentWindSpeed = (self.currently["windSpeed"]?.doubleValue)!
             
-            //self.hourlyTemperature = (self.hourly["data"]![0]["temperature"].doubleValue)
             
-            self.sunset = (self.daily["data"]?[0]["sunsetTime"].intValue)!
-            self.sunrise = (self.daily["data"]?[0]["sunriseTime"].intValue)!
+            let sunsetTime = (self.daily["data"]?[0]["sunsetTime"].doubleValue)!
+            self.sunset = NSDate(timeIntervalSince1970: sunsetTime)
             
+            let timePeriodFormatter = DateFormatter()
+            timePeriodFormatter.dateFormat = "hh:mm a"
             
-            //print("\n\n\n\nTHIS IS CURRENTLY \(self.city)")
-            //print("\n\n\n\nTHIS IS HOURLY \(self.hourly)")
+            self.sunsetDateString = timePeriodFormatter.string(from: self.sunset as Date)
+        
+            let sunriseTime = (self.daily["data"]?[0]["sunriseTime"].doubleValue)!
+            self.sunrise = NSDate(timeIntervalSince1970: sunriseTime)
+           
+            //let dayTimePeriodFormatter = DateFormatter()
+            self.sunriseDateString = timePeriodFormatter.string(from: self.sunrise as Date)
+            
+            print(self.sunriseDateString)
+            print("HEY\(self.sunriseDateString)")
             
             completed()
         })
     }
+
     
 }
 

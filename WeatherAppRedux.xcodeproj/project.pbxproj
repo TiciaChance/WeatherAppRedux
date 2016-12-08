@@ -13,11 +13,8 @@
 		1111BF0F1DEF52ED00EBE6D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1111BF0E1DEF52ED00EBE6D1 /* Assets.xcassets */; };
 		1111BF121DEF52ED00EBE6D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1111BF101DEF52ED00EBE6D1 /* LaunchScreen.storyboard */; };
 		1111BF1A1DEF56AF00EBE6D1 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1111BF191DEF56AF00EBE6D1 /* WeatherAPI.swift */; };
-		118CAEE41DF6681700F12F66 /* green2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 118CAEE31DF6681700F12F66 /* green2.jpg */; };
-		118CAEE61DF6682300F12F66 /* stones.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 118CAEE51DF6682300F12F66 /* stones.jpg */; };
-		118CAEE81DF724D700F12F66 /* tree.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 118CAEE71DF724D700F12F66 /* tree.jpg */; };
-		118CAEEA1DF7257100F12F66 /* leaf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 118CAEE91DF7257100F12F66 /* leaf.jpg */; };
 		118CAEEC1DF725C700F12F66 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118CAEEB1DF725C700F12F66 /* DetailVC.swift */; };
+		11F31A7D1DF8932E00319280 /* field2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11F31A7C1DF8932E00319280 /* field2.jpg */; };
 		11FD4C721DF88813004B331E /* field.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11FD4C711DF88813004B331E /* field.jpg */; };
 		E42C775EBB3CB59E868858DB /* Pods_WeatherAppRedux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA74E139B78AF19D2D5CC40 /* Pods_WeatherAppRedux.framework */; };
 /* End PBXBuildFile section */
@@ -31,11 +28,8 @@
 		1111BF111DEF52ED00EBE6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1111BF131DEF52ED00EBE6D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1111BF191DEF56AF00EBE6D1 /* WeatherAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
-		118CAEE31DF6681700F12F66 /* green2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = green2.jpg; path = ../../../../Downloads/green2.jpg; sourceTree = "<group>"; };
-		118CAEE51DF6682300F12F66 /* stones.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = stones.jpg; path = ../../../../Downloads/stones.jpg; sourceTree = "<group>"; };
-		118CAEE71DF724D700F12F66 /* tree.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tree.jpg; path = ../../../../Downloads/tree.jpg; sourceTree = "<group>"; };
-		118CAEE91DF7257100F12F66 /* leaf.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = leaf.jpg; path = ../../../../Downloads/leaf.jpg; sourceTree = "<group>"; };
 		118CAEEB1DF725C700F12F66 /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		11F31A7C1DF8932E00319280 /* field2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = field2.jpg; path = ../../../../Downloads/field2.jpg; sourceTree = "<group>"; };
 		11FD4C711DF88813004B331E /* field.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = field.jpg; path = ../../../../Downloads/field.jpg; sourceTree = "<group>"; };
 		4FA74E139B78AF19D2D5CC40 /* Pods_WeatherAppRedux.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherAppRedux.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A2726203E6CABB03BF45F3A /* Pods-WeatherAppRedux.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAppRedux.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherAppRedux/Pods-WeatherAppRedux.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,17 +69,14 @@
 		1111BF061DEF52ED00EBE6D1 /* WeatherAppRedux */ = {
 			isa = PBXGroup;
 			children = (
-				11D699B01DF368C900EFA049 /* Models */,
 				1111BF071DEF52ED00EBE6D1 /* AppDelegate.swift */,
+				11D699B01DF368C900EFA049 /* Models */,
 				11D699B11DF3690A00EFA049 /* Controller */,
 				11D699B21DF3691D00EFA049 /* View */,
 				1111BF0E1DEF52ED00EBE6D1 /* Assets.xcassets */,
 				1111BF101DEF52ED00EBE6D1 /* LaunchScreen.storyboard */,
-				118CAEE51DF6682300F12F66 /* stones.jpg */,
-				118CAEE71DF724D700F12F66 /* tree.jpg */,
-				118CAEE91DF7257100F12F66 /* leaf.jpg */,
 				11FD4C711DF88813004B331E /* field.jpg */,
-				118CAEE31DF6681700F12F66 /* green2.jpg */,
+				11F31A7C1DF8932E00319280 /* field2.jpg */,
 				1111BF131DEF52ED00EBE6D1 /* Info.plist */,
 			);
 			path = WeatherAppRedux;
@@ -168,6 +159,7 @@
 				TargetAttributes = {
 					1111BF031DEF52EC00EBE6D1 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = TDFXWLD7DJ;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -196,14 +188,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				118CAEE41DF6681700F12F66 /* green2.jpg in Resources */,
-				118CAEE81DF724D700F12F66 /* tree.jpg in Resources */,
 				1111BF121DEF52ED00EBE6D1 /* LaunchScreen.storyboard in Resources */,
-				118CAEEA1DF7257100F12F66 /* leaf.jpg in Resources */,
 				11FD4C721DF88813004B331E /* field.jpg in Resources */,
+				11F31A7D1DF8932E00319280 /* field2.jpg in Resources */,
 				1111BF0F1DEF52ED00EBE6D1 /* Assets.xcassets in Resources */,
 				1111BF0D1DEF52ED00EBE6D1 /* Main.storyboard in Resources */,
-				118CAEE61DF6682300F12F66 /* stones.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +381,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = TDFXWLD7DJ;
 				INFOPLIST_FILE = WeatherAppRedux/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.electricchance.WeatherAppRedux;
@@ -406,6 +396,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = TDFXWLD7DJ;
 				INFOPLIST_FILE = WeatherAppRedux/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.electricchance.WeatherAppRedux;

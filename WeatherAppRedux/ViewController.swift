@@ -114,14 +114,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showImageVC" {
-            let VC = segue.destination as! DetailVC
-        
-        }
-    }
     
-}
+        let detailVC = segue.destination as! DetailVC
+        
+        detailVC.sunsetTime = weather.sunsetDateString
+        detailVC.sunriseTime = weather.sunriseDateString
+    }
 
+}
 
 
 extension ViewController {
@@ -149,6 +149,7 @@ extension ViewController {
            
             self.showLabels()
             self.updateUI()
+            print(self.locationLat)
 
         }
         

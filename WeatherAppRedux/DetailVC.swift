@@ -10,11 +10,21 @@ import UIKit
 
 class DetailVC: UIViewController {
 
+    
+    @IBOutlet weak var sunriseLabel: UILabel!
+    
+    @IBOutlet weak var sunsetLabel: UILabel!
+    
+    var sunriseTime = String()
+    var sunsetTime = String()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sunsetLabel.text = sunsetTime
+        sunriseLabel.text = sunriseTime
 
         // Do any additional setup after loading the view.
     }
 
-
 }
+
